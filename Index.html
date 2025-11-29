@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta tags for responsive design and encoding -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Document title -->
+    <title>Document</title>
+
+    <!-- Local Bootstrap CSS -->
+    <link rel="stylesheet" href="./bootstrap-5.3.8-dist/css/bootstrap.css" />
+    <!-- CDN Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Font Awesome icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Google Fonts for custom typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Encode+Sans:wdth,wght@99.7,580&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Share+Tech&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Animate.css for animation effects -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- AOS animation-->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  </head>
+  <body>
+    <!-- ================= HEADER ================= -->
+    <header style="background-color: #f7f4eb">
+      <div class="container">
+        <div class="row">
+          <!-- Logo and Brand Name -->
+          <div class="col-3">
+            <div class="d-flex navbar-expand-lg px-5">
+              <img src="./image/image.png" alt="" width="60px" />
+              <p class="fw-bold fs-4 my-4">Broccoli</p>
+            </div>
+          </div>
+
+          <!-- Navigation Menu -->
+          <div class="col-7">
+            <ul
+              class="nav navbar-brand gap-3 navbar-expand-lg my-4"
+              style="font-family: Share Tech, sans-serif"
+            >
+              <!-- Navigation links -->
+              <li class="nav-item fs-5">
+                <a class="nav-link text-black fw-bold" href="#">Home+</a>
+              </li>
+              <li class="nav-item fs-5">
+                <a class="nav-link text-black fw-bold" href="#">Shop</a>
+              </li>
+              <li class="nav-item fs-5">
+                <a class="nav-link text-black fw-bold" href="#">Product</a>
+              </li>
+              <li class="nav-item fs-5">
+                <a class="nav-link text-black fw-bold" href="#">Blogs</a>
+              </li>
+              <li class="nav-item fs-5">
+                <a class="nav-link text-black fw-bold" href="#">Contact</a>
+              </li>
+              <li class="nav-item fs-5">
+                <a class="nav-link text-black fw-bold" href="#">Pages</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Header Icons: Search, User, Cart -->
+          <div class="col-2 my-3 fs-2 d-flex gap-4">
+            <!-- Search icon triggers offcanvas -->
+            <div class="border p-2 shadow-sm">
+              <i
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasTop"
+                aria-controls="offcanvasTop"
+                class="fa-solid fa-magnifying-glass"
+              ></i>
+            </div>
+            <!-- User icon triggers login modal -->
+            <div class="border p-2 shadow-sm">
+              <a
+                href="#"
+                class="text-black"
+                data-bs-toggle="modal"
+                data-bs-target="#loginModal"
+              >
+                <i class="fa-solid fa-circle-user"></i>
+              </a>
+            </div>
+            <!-- Cart icon triggers offcanvas -->
+            <div class="border p-2 shadow-sm">
+              <i
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight"
+                class="fa-solid fa-cart-shopping"
+              ></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== LOGIN MODAL ========== -->
+      <div
+        class="modal fade"
+        id="loginModal"
+        tabindex="-1"
+        aria-labelledby="loginModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content rounded-3 p-3">
+            <div class="modal-header border-0">
+              <h5 class="modal-title fw-bold" id="loginModalLabel">Login</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="input-group mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Email"
+                  />
+                  <i
+                    class="fa-solid fa-envelope position-absolute top-50 end-0 translate-middle-y me-3"
+                  ></i>
+                </div>
+                <div class="input-group mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                  />
+                  <i
+                    class="fa-solid fa-lock position-absolute top-50 end-0 translate-middle-y me-3"
+                  ></i>
+                </div>
+                <button
+                  class="btn w-100 text-white fw-bold rounded-5"
+                  style="background-color: blue"
+                >
+                  LOGIN
+                </button>
+                <p class="text-center py-3">
+                  Already have an account?
+                  <a
+                    href="#"
+                    class="fw-bold"
+                    data-bs-dismiss="modal"
+                    data-bs-toggle="modal"
+                    data-bs-target="#signupModal"
+                    >Sign Up</a
+                  >
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== SIGNUP MODAL ========== -->
+      <div class="modal fade" id="signupModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content rounded-3 p-3">
+            <div class="modal-header border-0">
+              <h5 class="modal-title fw-bold">Sign Up</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="input-group mb-3 position-relative">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Your Name"
+                  />
+                  <i
+                    class="fa-solid fa-user position-absolute top-50 end-0 translate-middle-y me-3"
+                  ></i>
+                </div>
+                <div class="input-group mb-3 position-relative">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your Email"
+                  />
+                  <i
+                    class="fa-solid fa-envelope position-absolute top-50 end-0 translate-middle-y me-3"
+                  ></i>
+                </div>
+                <div class="input-group mb-3 position-relative">
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                  />
+                  <i
+                    class="fa-solid fa-lock position-absolute top-50 end-0 translate-middle-y me-3"
+                  ></i>
+                </div>
+                <button
+                  class="btn w-100 text-white fw-bold rounded-5"
+                  style="background-color: blue"
+                >
+                  SIGN UP
+                </button>
+                <p class="text-center py-3">
+                  Already have an account?
+                  <a
+                    href="#"
+                    class="fw-bold"
+                    data-bs-dismiss="modal"
+                    data-bs-toggle="modal"
+                    data-bs-target="#loginModal"
+                  >
+                    Login
+                  </a>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ========== OFFCANVAS SEARCH BAR ========== -->
+      <div
+        class="offcanvas offcanvas-top"
+        tabindex="-1"
+        id="offcanvasTop"
+        aria-labelledby="offcanvasTopLabel"
+      >
+        <div class="offcanvas-header">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <form action="">
+            <div class="container">
+              <h4 class="text-center">Seach Menu</h4>
+              <div>
+                <input
+                  style="
+                    border: none;
+                    outline: none;
+                    border-bottom: 2px solid black;
+                  "
+                  class="w-100 py-3 fs-4"
+                  type="text"
+                  placeholder="Search"
+                />
+                <i
+                  class="fa-solid fa-magnifying-glass fs-1 position-absolute top-50 end-10 translate-middle-y"
+                ></i>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- ========== OFFCANVAS SHOPPING CART ========== -->
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">Your Items</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">...</div>
+      </div>
+
+      <!-- ========== CAROUSEL SLIDER (MAIN BANNER) ========== -->
+      <div></div>
+      <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <!-- ========= FIRST SLIDE ========= -->
+          <div class="carousel-item active">
+            <div class="container d-flex">
+              <div
+                class="d-flex align-items-center"
+                style="width: 45%; height: 700px; background-color: #f7f4eb"
+              >
+                <div class="px-5">
+                  <strong style="color: #80b600; font-size: 15px"
+                    >100% genuine Products</strong
+                  >
+                  <h1
+                    class="fw-bold"
+                    style="font-family: Share Tech, sans-serif; font-size: 70px"
+                  >
+                    Tasty & Healthy Organic Food
+                  </h1>
+                  <button
+                    class="btn text-light px-3 py-2"
+                    style="background-color: #80b600"
+                  >
+                    Show Now
+                  </button>
+                </div>
+              </div>
+              <div
+                class="d-flex align-items-center"
+                style="width: 55%; height: 700px; background-color: #f7f4eb"
+              >
+                <div class="animate__animated animate__backInUp">
+                  <img
+                    src="./image/image1.png"
+                    alt=""
+                    width="100%"
+                    height="100%"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ========= SECOND SLIDE ========= -->
+          <div class="carousel-item">
+            <div class="container d-flex">
+              <div
+                style="width: 40%; height: 700px; background-color: #f7f4eb"
+                class="animate__animated animate__backInUp"
+              >
+                <img
+                  src="./image/image2.png"
+                  alt=""
+                  width="100%"
+                  height="100%"
+                />
+              </div>
+              <div
+                class="d-flex align-items-center"
+                style="width: 60%; height: 700px; background-color: #f7f4eb"
+              >
+                <div class="px-5">
+                  <strong style="color: #80b600; font-size: 15px"
+                    >100% Fresh</strong
+                  >
+                  <h1
+                    class="fw-bold"
+                    style="font-family: Share Tech, sans-serif; font-size: 60px"
+                  >
+                    Tasty & Healthy Juice Fruit Fresh
+                  </h1>
+                  <button
+                    class="btn text-light"
+                    style="background-color: #80b600"
+                  >
+                    Show Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Carousel Controls -->
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ================= MAIN BODY ================= -->
+    <main class="my-5">
+      <!-- ========== PROMOTIONAL POSTERS ========== -->
+      <div class="container" style="width: 80%; height: 530px">
+        <div style="display: flex">
+          <!-- ===== Poster 1: Green Lemon & Orange Juice ===== -->
+          <div
+            style="width: 50%; height: 500px; background-color: #eff5e9"
+            class="m-3"
+            data-aos="fade-up-right"
+          >
+            <div class="m-5">
+              <div>
+                <p class="fs-1" style="font-family: Playfair Display, serif">
+                  Green lemon &
+                </p>
+                <strong
+                  style="font-size: 40px; font-family: Playfair Display, serif"
+                  >Orange Juice</strong
+                >
+              </div>
+              <div style="width: 100%; height: 100%; display: flex">
+                <div style="width: 35%">
+                  <div style="color: gray" class="px-2">
+                    <p>BEST ORANGE</p>
+                    <p>FLAVOUR</p>
+                    <p>YOU NEVER MISS</p>
+                  </div>
+                  <button
+                    class="btn rounded-5 py-2 px-3"
+                    style="background-color: #80b600; color: white"
+                  >
+                    Show Now->
+                  </button>
+                </div>
+                <div style="width: 65%; height: auto">
+                  <img
+                    src="./image/image3.png"
+                    alt=""
+                    width="340px"
+                    height="100%"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== Poster 2 and Poster 3 ===== -->
+          <div style="width: 50%; height: 500px">
+            <!-- Poster 2: Fresh Almond Seed -->
+            <div style="width: 100%; height: 240px" class="m-3">
+              <div class="container d-flex p-0" data-aos="fade-left">
+                <div
+                  style="
+                    width: 35%;
+                    height: 240px;
+                    background-color: #f6f6f6;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <div>
+                    <img
+                      src="./image/image4.png"
+                      alt=""
+                      width="100%"
+                      height="auto"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="d-flex align-items-center"
+                  style="width: 65%; height: 240px; background-color: #f6f6f6"
+                >
+                  <div class="px-4">
+                    <strong
+                      class="fw-bold fs-2"
+                      style="font-family: Baskervville, serif"
+                    >
+                      Up to 15% off Fresh Almond seed
+                    </strong>
+                    <h5
+                      style="color: #80b600; font-family: Baskervville, serif"
+                    >
+                      From 69.99$
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Poster 3: Mango Drinks -->
+            <div style="width: 100%; height: 240px" class="mx-3">
+              <div class="container d-flex p-0" data-aos="fade-left">
+                <div
+                  class="d-flex align-items-center"
+                  style="width: 65%; height: 240px; background-color: #f6f6f6"
+                >
+                  <div class="px-5">
+                    <h2
+                      class="fw-bold"
+                      style="font-family: Baskervville, serif"
+                    >
+                      50% off in Fresh Mango Drinks
+                    </h2>
+                    <button
+                      class="btn text-light rounded-5 py-2 px-3"
+                      style="background-color: #80b600"
+                    >
+                      Show Now->
+                    </button>
+                  </div>
+                </div>
+                <div
+                  style="
+                    width: 35%;
+                    height: 240px;
+                    background-color: #f6f6f6;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                  "
+                >
+                  <div>
+                    <img
+                      src="./image/image5.png"
+                      alt=""
+                      width="100%"
+                      height="100%"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ========== PRODUCT LIST SECTION ========== -->
+      <div class="my-5">
+        <div class="container">
+          <!-- Section Title -->
+          <h1
+            class="text-center fw-bold"
+            style="font-family: Share Tech, sans-serif; font-size: 50px"
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom"
+          >
+            Our Products
+          </h1>
+
+          <!-- Product Category Nav -->
+          <ul
+            class="nav navbar-brand gap-3 navbar-expand-lg fw-bold fs-5 justify-content-center my-4"
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-bottom"
+          >
+            <li class="nav-item">
+              <a class="nav-link fw-bold" style="color: #80b600" href="#"
+                >FOOD & DRINKS</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-black fw-bold" href="#">BREAD & CAKE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-black fw-bold" href="#">DRIED FOOD</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-black fw-bold" href="#">FISH & MEAT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-black fw-bold" href="#">VEGETABLE</a>
+            </li>
+          </ul>
+
+          <!-- Product Cards Grid -->
+          <div class="row">
+            <!-- Example Product Card (Repeat for each product) -->
+            <div
+              class="col-3 my-5"
+              data-aos="fade-up"
+              data-aos-anchor-placement="center-center"
+            >
+              >
+              <div class="card img-thumbnail">
+                <div class="w-100" style="height: 300px">
+                  <img
+                    width="100%"
+                    height="100%"
+                    src="./image/image6.png"
+                    alt=""
+                  />
+                </div>
+                <div class="body-card">
+                  <div class="d-flex justify-content-center my-3 text-warning">
+                    <!-- Star ratings (filled/outline) -->
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p class="text-center fw-bold my-3">q.s products</p>
+                  <div class="d-flex justify-content-center">
+                    <h4 style="color: #80b600">$39.00</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- card 2 -->
+            <div
+              class="col-3 my-5"
+              data-aos="fade-up"
+              data-aos-anchor-placement="center-center"
+            >
+              >
+              <div class="card img-thumbnail">
+                <div class="w-100" style="height: 300px">
+                  <img
+                    width="100%"
+                    height="100%"
+                    src="./image/image7.png"
+                    alt=""
+                  />
+                </div>
+                <div class="body-card">
+                  <div class="d-flex justify-content-center my-3 text-warning">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p class="text-center fw-bold my-3">c.v products</p>
+                  <div class="d-flex justify-content-center">
+                    <h4 style="color: #80b600">$70.00 <del>$85.00</del></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- card 3 -->
+            <div
+              class="col-3 my-5"
+              data-aos="fade-up"
+              data-aos-anchor-placement="center-center"
+            >
+              >
+              <div class="card img-thumbnail">
+                <div class="w-100" style="height: 300px">
+                  <img
+                    width="100%"
+                    height="100%"
+                    src="./image/image8.png"
+                    alt=""
+                  />
+                </div>
+                <div class="body-card">
+                  <div class="d-flex justify-content-center my-3 text-warning">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p class="text-center fw-bold my-3">H.c d products</p>
+                  <div class="d-flex justify-content-center">
+                    <h4 style="color: #80b600">$39.00 <del>$60.00</del></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- card 4 -->
+            <div
+              class="col-3 my-5"
+              data-aos="fade-up"
+              data-aos-anchor-placement="center-center"
+            >
+              >
+              <div class="card img-thumbnail">
+                <div class="w-100" style="height: 300px">
+                  <img
+                    width="100%"
+                    height="100%"
+                    src="./image/image9.png"
+                    alt=""
+                  />
+                </div>
+                <div class="body-card">
+                  <div class="d-flex justify-content-center my-3 text-warning">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p class="text-center fw-bold my-3">K.s v products</p>
+                  <div class="d-flex justify-content-center">
+                    <h4 style="color: #80b600">$39.00</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- card 5  -->
+            <div
+              class="col-3 my-5"
+              data-aos="fade-up"
+              data-aos-anchor-placement="center-center"
+            >
+              >
+              <div class="card img-thumbnail">
+                <div style="height: 300px" class="w-100">
+                  <img
+                    width="100%"
+                    height="100%"
+                    src="./image/image10.png"
+                    alt=""
+                  />
+                </div>
+                <div class="body-card">
+                  <div class="d-flex justify-content-center my-3 text-warning">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p class="text-center fw-bold my-3">q.s products</p>
+                  <div class="d-flex justify-content-center">
+                    <h4 style="color: #80b600">$99.00</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- card 6 -->
+            <div
+              class="col-3 my-5"
+              data-aos="fade-up"
+              data-aos-anchor-placement="center-center"
+            >
+              >
+              <div class="card img-thumbnail">
+                <div style="height: 300px; width: 100%">
+                  <img
+                    width="100%"
+                    height="100%"
+                    src="./image/image11.png"
+                    alt=""
+                  />
+                </div>
+                <div class="body-card">
+                  <div class="d-flex justify-content-center my-3 text-warning">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p class="text-center fw-bold my-3">q.s products</p>
+                  <div class="d-flex justify-content-center">
+                    <h4 style="color: #80b600">$39.00</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- card 7 -->
+            <div
+              class="col-3 my-5"
+              data-aos="fade-up"
+              data-aos-anchor-placement="center-center"
+            >
+              >
+              <div class="card img-thumbnail">
+                <div style="height: 300px; width: 100%">
+                  <img
+                    width="100%"
+                    height="100%"
+                    src="./image/image12.png"
+                    alt=""
+                  />
+                </div>
+                <div class="body-card">
+                  <div class="d-flex justify-content-center my-3 text-warning">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p class="text-center fw-bold my-3">q.s products</p>
+                  <div class="d-flex justify-content-center">
+                    <h4 style="color: #80b600">$19.00 <del>$21.00</del></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- card 8 -->
+            <div
+              class="col-3 my-5"
+              data-aos="fade-up"
+              data-aos-anchor-placement="center-center"
+            >
+              >
+              <div class="card img-thumbnail">
+                <div class="w-100" style="height: 300px">
+                  <img
+                    width="100%"
+                    height="100%"
+                    src="./image/image13.png"
+                    alt=""
+                  />
+                </div>
+                <div class="body-card">
+                  <div class="d-flex justify-content-center my-3 text-warning">
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                  </div>
+                  <p class="text-center fw-bold my-3">q.s products</p>
+                  <div class="d-flex justify-content-center">
+                    <h4 style="color: #80b600">$33.00 <del>$39.00</del></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- end .row -->
+        </div>
+        <!-- end .container -->
+      </div>
+      <!-- end .my-5 -->
+    </main>
+    <!-- ===========Footer============ -->
+    <footer data-aos="zoom-out-up" class="shadow-lg">
+      <div class="container-fluid" style="background-color: #f7f4eb">
+        <div class="row p-5">
+          <div class="col-4">
+            <div style="height: auto; width: 100%">
+              <h1
+                style="font-family: Playfair Display, serif"
+                class="text-center"
+              >
+                About Us
+              </h1>
+              <p class="py-4 fs-5 px-5">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Dignissimos repellat architecto iste beatae obcaecati dolores
+                consectetur omnis ducimus magnam vitae!
+              </p>
+            </div>
+          </div>
+          <div class="col-4">
+            <h1 style="font-family: Playfair Display, serif">Quick Lisks</h1>
+            <div class="">
+              <ul class="fs-5 py-3">
+                <li style="list-style: none">Apple</li>
+                <li style="list-style: none">Banana</li>
+                <li style="list-style: none">mango</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="">
+              <h1 style="font-family: Playfair Display, serif">Follow Us</h1>
+              <div class="py-3 fs-3">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+              </div>
+
+              <div class="">
+                <i class="fa-solid fa-phone fs-5"></i>
+                <strong class="fs-4">+8553128671</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+<script>
+  AOS.init();
+</script>
